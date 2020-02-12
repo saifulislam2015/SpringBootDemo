@@ -3,7 +3,7 @@ package com.example.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "UserInfo")
+@Table(name = "userinfo")
 public class User {
     private int id;
     private String firstName;
@@ -12,8 +12,9 @@ public class User {
     private String password;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "userId")
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.TABLE)
+    @Column(name = "userid")
     public int getId() {
         return id;
     }
@@ -21,7 +22,7 @@ public class User {
         this.id = id;
     }
 
-    @Column(name = "firstName", nullable = false)
+    @Column(name = "firstname", nullable = false)
     public String getFirstName() {
         return firstName;
     }
