@@ -13,7 +13,7 @@ public class User {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
-    @GeneratedValue(strategy= GenerationType.TABLE)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     @Column(name = "userid")
     public int getId() {
         return id;
