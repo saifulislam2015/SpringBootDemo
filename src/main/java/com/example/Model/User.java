@@ -5,20 +5,22 @@ import javax.persistence.*;
 @Entity
 @Table(name = "userinfo")
 public class User {
-    private int id;
+    private Long id;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    @GeneratedValue(strategy= GenerationType.SEQUENCE)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy= GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="USER_SEQ1")
+    @SequenceGenerator(name="USER_SEQ1 ", sequenceName="USER_SEQ1", allocationSize=1)
     @Column(name = "userid")
-    public int getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
