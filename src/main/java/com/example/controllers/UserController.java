@@ -15,6 +15,12 @@ import java.util.List;
 public class UserController {
     @Autowired(required=true) private IUserRepository _repository;
 
+
+    @GetMapping(value = "/test")
+    public String getTest(){
+        return "Test";
+    }
+
     @GetMapping(value = "/users")
     public List<User> getUsers(){
         return _repository.findAll();

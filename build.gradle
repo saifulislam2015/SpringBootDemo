@@ -7,6 +7,7 @@ plugins {
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 //sourceCompatibility = '1.8'
+apply plugin: 'war'
 
 repositories {
     mavenCentral()
@@ -29,8 +30,17 @@ dependencies {
 
     runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
     implementation 'org.springframework.boot:spring-boot-configuration-processor'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 }
 
 test {
     useJUnitPlatform()
+}
+
+bootWar{
+    archiveName = "userapi.war"
+}
+
+bootJar{
+    enabled = false
 }
