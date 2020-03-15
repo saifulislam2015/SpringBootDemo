@@ -12,7 +12,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication(scanBasePackages={"com.example"})
 @EntityScan(value = {"com.example"})
 @EnableJpaRepositories("com.example")
-//@EnableMongoRepositories("com.example.Repo")
 
 public class DemoapiApplication extends SpringBootServletInitializer {
 

@@ -41,7 +41,6 @@ public class UserController {
     @PostMapping("/users/verify")
     public ResponseEntity<List<User>> verifyUser(@Valid @RequestBody User user) {
         List<User> u = _repository.find(user.getEmail(),user.getPassword());
-        //String existence = u.isEmpty() ? "0" : "1";
         return ResponseEntity.ok().body(u);
     }
 }

@@ -3,7 +3,11 @@ package com.example.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "userinfo")
+@Table(name = "USERINFO")
+@SequenceGenerator(name = "CRD_ID",
+        sequenceName = "RTDS_ADSINPUTSEQ",
+        initialValue = 543, allocationSize = 1)
+
 public class User {
     private Long id;
     private String firstName;
@@ -12,11 +16,8 @@ public class User {
     private String password;
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
-    //@GeneratedValue(strategy= GenerationType.SEQUENCE)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="USER_SEQ1")
-    @SequenceGenerator(name="USER_SEQ1 ", sequenceName="USER_SEQ1", allocationSize=1)
-    @Column(name = "userid")
+    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "CRD_ID")
+    @Column(name = "userid",nullable = false, unique = true)
     public Long getId() {
         return id;
     }
